@@ -19,6 +19,30 @@
         </header>
 
         <main>
+            <div id="cardFormRow" class="row d-none">
+                <div class="col-3">
+                    <form id="CardForm" action="">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Nome Cognome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Ruolo</label>
+                            <input type="text" class="form-control" id="inputRole" placeholder="Ruolo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Indirizzo Email</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Indirizzo Email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">URL Immagine</label>
+                            <input type="text" class="form-control" id="inputImg" placeholder="Inserisci un URL per l'immagine">
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" class="mb-3 btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
             <button type="button" id="addBtn" class="btn btn-info my-3">Aggiungi membro</button>
             <div id="cardContainer" class="row gy-4 text-white">
                 <!-- <div class="col-lg-4">
