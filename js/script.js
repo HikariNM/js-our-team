@@ -37,31 +37,73 @@ const teamMembers = [
   }
 ];
 
-let card = '';
 
-for (let i = 0; i < teamMembers.length; i++) {
-  const teamMember = teamMembers[i];
+/****************************ESERCIZO*************************** */
+
+// card = document.getElementById('cardContainer');
+// let cardMember = '';
+
+// for (let i = 0; i < teamMembers.length; i++) {
+//   const teamMember = teamMembers[i];
   
-  const {name, role, email, img} = teamMember;
+//   const {name, role, email, img} = teamMember;
 
-  card += generateCard(name, role, email, img)
+//   cardMember += generateCard(name, role, email, img)
   
-}
+// }
 
-cardDetail = document.getElementById('cardContainer');
-cardDetail.innerHTML = card;
+// card.innerHTML = cardMember;
 
-function generateCard(name, role, email, img){
+// function generateCard(name, role, email, img){
 
-  return `<div class="col-lg-4">
-  <div id="card" class="bg-black d-flex">
-      <img id="cardImg" src="${img}" alt="${name}">
-      <div class="card-body p-3">
-          <h4 id="name">${name}</h4>
-          <p id="role">${role}</p>
-          <a id="email" class="text-decoration-none" href="mailto:${email}">${email}</a>
-      </div>
-  </div>
-</div>`
+//   return `<div class="col-lg-4">
+//   <div id="card" class="bg-black d-flex">
+//       <img id="cardImg" src="${img}" alt="${name}">
+//       <div class="card-body p-3">
+//           <h4 id="name">${name}</h4>
+//           <p id="role">${role}</p>
+//           <a id="email" class="text-decoration-none" href="mailto:${email}">${email}</a>
+//       </div>
+//   </div>
+// </div>`
 
-}
+// }
+
+/******************VERSIONE MIGLIORATA CON ADD MEMBER***************** */
+
+generateCard();
+
+function generateCard(){
+  cardHtml = document.getElementById('cardContainer');
+  let cardsList = '';
+  
+  for (let i = 0; i < teamMembers.length; i++) {
+    const teamMember = teamMembers[i];
+
+    const card = `<div class="col-lg-4">
+    <div id="card" class="bg-black d-flex">
+    <img id="cardImg" src="${teamMember.img}" alt="${teamMember.name}">
+    <div class="card-body p-3">
+    <h4 id="name">${teamMember.name}</h4>
+    <p id="role">${teamMember.role}</p>
+    <a id="email" class="text-decoration-none" href="mailto:${teamMember.email}">${teamMember.email}</a>
+    </div>
+    </div>
+    </div>`;
+    
+     cardsList += card;
+    
+  }
+  cardHtml.innerHTML = cardsList;
+
+};
+
+document.getElementById('addBtn').addEventListener('click', function(){
+  teamMembers.push({
+    name: prompt('Inserisci il nome'),
+    role: prompt('Inserisci il ruolo'),
+    email: prompt('Inserisci un indirizzo email valido'),
+    img: prompt('Inserisci il URL di un immagine')
+  });
+  generateCard()
+})
