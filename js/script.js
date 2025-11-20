@@ -37,21 +37,19 @@ const teamMembers = [
   }
 ];
 
-let cardList = '';
+let card = '';
 
 for (let i = 0; i < teamMembers.length; i++) {
   const teamMember = teamMembers[i];
-  console.log(teamMember)
   
   const {name, role, email, img} = teamMember;
-  console.log(name)
 
-  cardList += generateCard(name, role, email, img)
+  card += generateCard(name, role, email, img)
   
 }
 
-infoCard = document.getElementById('cardContainer');
-infoCard.innerHTML = cardList;
+cardDetail = document.getElementById('cardContainer');
+cardDetail.innerHTML = card;
 
 function generateCard(name, role, email, img){
 
