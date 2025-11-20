@@ -36,3 +36,34 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+let cardList = '';
+
+for (let i = 0; i < teamMembers.length; i++) {
+  const teamMember = teamMembers[i];
+  console.log(teamMember)
+  
+  const {name, role, email, img} = teamMember;
+  console.log(name)
+
+  cardList += generateCard(name, role, email, img)
+  
+}
+
+infoCard = document.getElementById('cardContainer');
+infoCard.innerHTML = cardList;
+
+function generateCard(name, role, email, img){
+
+  return `<div class="col-lg-4">
+  <div id="card" class="bg-black d-flex">
+      <img id="cardImg" src="${img}" alt="${name}">
+      <div class="card-body p-3">
+          <h4 id="name">${name}</h4>
+          <p id="role">${role}</p>
+          <a id="email" class="text-decoration-none" href="mailto:${email}">${email}</a>
+      </div>
+  </div>
+</div>`
+
+}
